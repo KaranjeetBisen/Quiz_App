@@ -1,0 +1,72 @@
+// .navbar {
+//     background-color: #0025DB;
+//     color: white;
+//     padding: 20px 20px;
+//     display: flex;
+//     align-items: center;
+//     border-bottom: 15px solid #00BDF2;
+// }
+// .logo {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .logo-img {
+//     width: 200px;
+//     height: 40px;
+//     margin-right: 10px;
+// }
+
+// .company-name {
+//     font-size: 1.5em;
+//     font-weight: bold;
+// }
+
+.custom-navbar {
+    padding-top: 0.8rem; /* Increase padding for height */
+    padding-bottom: 0.8rem; /* Increase padding for height */
+    background-color: #F4F7FA;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  
+  /* Logo Styling */
+  .logo {
+    width: 180px;
+  }
+
+  i{
+    color: #00BDF2;
+  }
+
+
+  .active-link{
+   background-color: #00BDF2; 
+  }
+
+
+button{
+  padding-inline: 10px;
+  margin: 3px;
+  background-color: #f4f7fa;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #00BDF2;
+  color: white;
+  i{
+    color: white;
+  }
+}
+
+
+.active-link{
+  background-color: #00BDF2;
+  color: white;
+  i{
+    color: white;
+  }
+}

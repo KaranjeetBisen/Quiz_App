@@ -1,0 +1,39 @@
+
+
+ <nav class="navbar navbar-expand-sm navbar-light fixed-top custom-navbar" style="background-color:#F4F7FA;">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+          <img [src]="" alt="Avatar Logo" style="width:180px;" class="rounded-pill">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <button 
+                      routerLink="/questionService" 
+                      routerLinkActive="active-link" 
+                      class="btn">
+                      <i class="fas fa-user-plus nav-icon register-icon"></i> Question Service
+                  </button>
+              </li>
+              <li class="nav-item">
+                  <button 
+                      routerLink="/assignments" 
+                      routerLinkActive="active-link" 
+                      class="btn">
+                      <i class="fas fa-tasks nav-icon assignments-icon"></i> Quiz Service
+                  </button>
+              </li>
+          </ul>
+          <!-- Search Button -->
+          <form class="d-flex ms-3">
+              <img [src]="" alt="Avatar Logo" style="width:50px; margin-left:-10px;" class="rounded-pill">
+          </form>
+      </div>
+  </div>
+</nav>
+  
+      
+      

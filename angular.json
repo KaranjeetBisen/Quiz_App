@@ -33,10 +33,10 @@
             ],
             "styles": [
               "src/styles.scss",
-              "/home/admin/Desktop/quiz_app/frontend_Angular/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "/home/admin/Desktop/quiz_app/Quiz_App/frontend_Angular/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "/home/admin/Desktop/quiz_app/frontend_Angular/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "/home/admin/Desktop/quiz_app/Quiz_App/frontend_Angular/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {

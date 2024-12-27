@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { QuestionService } from '../../../services/question.service';
+import { QuestionService } from '../../../../services/question.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-update-question',
-  imports: [CommonModule, FormsModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule,ReactiveFormsModule, RouterLink],
   templateUrl: './update-question.component.html',
   styleUrl: './update-question.component.scss',
 })
@@ -49,7 +49,11 @@ export class UpdateQuestionComponent implements OnInit {
   updateQuestion(){
     this.questionService.updateCustomer(this.id, this.updateCustomerForm.value).subscribe((response)=>{
       console.log(response);
-      this.router.navigateByUrl("question");
+      this.router.navigateByUrl("questionService/allQuestions");
     })
+  }
+
+  cancelToggle(){
+    this.router.navigateByUrl("questionService/allQuestions");
   }
 }

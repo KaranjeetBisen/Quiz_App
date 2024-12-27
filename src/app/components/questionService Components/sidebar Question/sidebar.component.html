@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-2 bg-light vh-100% sidebar-shadow custom-sidebar" style="overflow-y: auto">
+    <div class="p-3">
+      <ul class="nav flex-column assignment-list">
+        <li routerLink="allQuestions" routerLinkActive="active-link">
+          All Question
+        </li>
+        <li routerLink="postQuestion" routerLinkActive="active-link">
+          Post Question
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-10">
+    <div class="p-3" style="margin-top: -40px">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
+import { Question } from '../models/question';
 
 
 const url = ["http://localhost:8080/question/"];
@@ -11,23 +12,42 @@ export class QuestionService {
 
   constructor(private http : HttpClient) { }
 
-  getAllCustomer(): Observable<any>{
-    return this.http.get(url+"allQuestions");
+  getAllCustomer(): Observable<Question[]>{
+    return this.http.get<Question[]>(url+"allQuestions").pipe(
+      catchError(this.handleError));
   }
 
-  postCustomer(question:any): Observable<any>{
-    return this.http.post(url+"add", question );
+  postCustomer(question:Question): Observable<Question>{
+    return this.http.post<Question>(url+"add", question ).pipe(
+      catchError(this.handleError));
   }
 
-  deleteCustomer(id:number): Observable<any>{
-    return this.http.delete(url+"del/"+id);
+  deleteCustomer(id:number): Observable<void>{
+    return this.http.delete<void>(url+"del/"+id).pipe(
+      catchError(this.handleError));
   }
 
-  getCustomerById(id: number): Observable<any>{
-    return this.http.get(url+"getById/"+id);
+  getCustomerById(id: number): Observable<Question>{
+    return this.http.get<Question>(url+"getById/"+id).pipe(
+      catchError(this.handleError));
   }
 
-  updateCustomer(id : number, question : any): Observable<any>{
-    return this.http.put(url+"upd/"+id, question);
+  updateCustomer(id : number, question : Question): Observable<Question>{
+    return this.http.put<Question>(url+"upd/"+id, question,).pipe(
+      catchError(this.handleError));
+  }
+
+
+  private handleError(error: any): Observable<never> {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side or network error
+      errorMessage = `Client-side error: ${error.error.message}`;
+    } else {
+      // Server-side error
+      errorMessage = `Server error: ${error.status} ${error.message}`;
+    }
+    console.error(errorMessage); // Log the error to the console
+    return throwError(() => new Error(errorMessage));
   }
 }

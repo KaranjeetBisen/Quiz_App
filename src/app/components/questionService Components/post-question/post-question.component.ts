@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Question } from '../../../models/question';
-import { QuestionService } from '../../../services/question.service';
+import { Question } from '../../../../models/question';
+import { QuestionService } from '../../../../services/question.service';
 
 @Component({
   selector: 'app-post-question',
@@ -13,6 +13,8 @@ import { QuestionService } from '../../../services/question.service';
 })
 export class PostQuestionComponent implements OnInit {
   postCustomerForm!: FormGroup;
+  categories = ['Java', 'Python', 'C'];
+  difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
   constructor(
     private questionService: QuestionService,

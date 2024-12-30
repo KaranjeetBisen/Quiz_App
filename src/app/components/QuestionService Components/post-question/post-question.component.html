@@ -16,12 +16,27 @@
             class="form-control"
             required
             formControlName="category"
+            (change)="onCategoryChange($event)"
           >
             <option value="" disabled selected>Select Category</option>
             <option *ngFor="let category of categories" [value]="category">
               {{ category }}
             </option>
+            <option value="other">Other</option>
           </select>
+        </div>
+        <!-- Dynamic Input Field for Custom Category -->
+        <div class="mb-2" *ngIf="isOtherSelected">
+          <label for="category" class="form-label">Enter Other Category</label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            class="form-control"
+            formControlName="category"
+            placeholder="Enter category"
+            required
+          />
         </div>
         <div class="mb-2">
           <label for="questionTitle" class="form-label">Question Title</label>
@@ -34,6 +49,7 @@
             formControlName="questionTitle"
           />
         </div>
+        <!-- Remaining form fields -->
         <div class="mb-2">
           <label for="option1" class="form-label">Option 1</label>
           <input
@@ -106,6 +122,7 @@
             </option>
           </select>
         </div>
+        <!-- ... -->
         <button
           type="submit"
           class="btn btn-primary w-100 mt-2"

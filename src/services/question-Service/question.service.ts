@@ -17,6 +17,11 @@ export class QuestionService {
       catchError(this.handleError));
   }
 
+  getAllCategoreis(): Observable<string[]>{
+    return this.http.get<string[]>(url+"allCategories").pipe(
+      catchError(this.handleError));
+  }
+
   postCustomer(question:Question): Observable<Question>{
     return this.http.post<Question>(url+"add", question ).pipe(
       catchError(this.handleError));

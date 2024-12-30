@@ -13,15 +13,23 @@ import { QuestionService } from '../../../../services/question-Service/question.
 })
 export class PostQuestionComponent implements OnInit {
   postCustomerForm!: FormGroup;
-  categories = ['Java', 'Python', 'C'];
+  categories: string[] = [];
   difficultyLevels = ['Easy', 'Medium', 'Hard'];
+  isOtherSelected: boolean = false;
 
   constructor(
     private questionService: QuestionService,
     private fb: FormBuilder
   ) {}
 
+  getAllCategories() {
+    this.questionService.getAllCategoreis().subscribe((response) => {
+      this.categories = response;
+    });
+  }
+
   ngOnInit(){
+   this.getAllCategories();
    this.postCustomerForm =this.fb.group({
     category: [null , Validators.required],
     questionTitle: [null , Validators.required],
@@ -34,6 +42,18 @@ export class PostQuestionComponent implements OnInit {
    })
   }
 
+  onCategoryChange(event: Event): void {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    if (selectedValue === 'other') {
+      this.isOtherSelected = true;
+      this.postCustomerForm.get('otherCategory')?.setValidators(Validators.required);
+    } else {
+      this.isOtherSelected = false;
+      this.postCustomerForm.get('otherCategory')?.clearValidators();
+      this.postCustomerForm.get('otherCategory')?.setValue('');
+    }
+    this.postCustomerForm.get('otherCategory')?.updateValueAndValidity();
+  }
 
   postCustomer(){
       // Check if the form is valid before submitting

@@ -1,0 +1,119 @@
+<div
+  class="container d-flex justify-content-center align-items-center"
+  style="min-height: 80vh; margin: 20px"
+>
+  <div class="card shadow-lg" style="width: 70%">
+    <div class="card-header bg-primary text-white text-center">
+      <h2 class="mb-0">Add New Question</h2>
+    </div>
+    <div class="card-body" style="padding: 1rem 1.5rem">
+      <form [formGroup]="postCustomerForm">
+        <div class="mb-2">
+          <label for="category" class="form-label">Category</label>
+          <select
+            id="category"
+            name="category"
+            class="form-control"
+            required
+            formControlName="category"
+          >
+            <option value="" disabled selected>Select Category</option>
+            <option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <label for="questionTitle" class="form-label">Question Title</label>
+          <input
+            type="text"
+            id="questionTitle"
+            name="questionTitle"
+            class="form-control"
+            required
+            formControlName="questionTitle"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="option1" class="form-label">Option 1</label>
+          <input
+            type="text"
+            id="option1"
+            name="option1"
+            class="form-control"
+            required
+            formControlName="option1"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="option2" class="form-label">Option 2</label>
+          <input
+            type="text"
+            id="option2"
+            name="option2"
+            class="form-control"
+            required
+            formControlName="option2"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="option3" class="form-label">Option 3</label>
+          <input
+            type="text"
+            id="option3"
+            name="option3"
+            class="form-control"
+            required
+            formControlName="option3"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="option4" class="form-label">Option 4</label>
+          <input
+            type="text"
+            id="option4"
+            name="option4"
+            class="form-control"
+            required
+            formControlName="option4"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="rightAnswer" class="form-label">Right Answer</label>
+          <input
+            type="text"
+            id="rightAnswer"
+            name="rightAnswer"
+            class="form-control"
+            required
+            formControlName="rightAnswer"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="difficultyLevel" class="form-label"
+            >Difficulty Level</label
+          >
+          <select
+            id="difficultyLevel"
+            name="difficultyLevel"
+            class="form-control"
+            required
+            formControlName="difficultyLevel"
+          >
+            <option value="" disabled selected>Select Difficulty Level</option>
+            <option *ngFor="let level of difficultyLevels" [value]="level">
+              {{ level }}
+            </option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary w-100 mt-2"
+          (click)="postCustomer()"
+        >
+          Add Question
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

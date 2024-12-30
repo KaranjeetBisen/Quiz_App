@@ -10,14 +10,18 @@
       <form [formGroup]="updateCustomerForm">
         <div class="mb-2">
           <label for="category" class="form-label">Category</label>
-          <input
-            type="text"
+          <select
             id="category"
             name="category"
             class="form-control"
             required
             formControlName="category"
-          />
+          >
+            <option value="" disabled selected>Select Category</option>
+            <option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </option>
+          </select>
         </div>
         <div class="mb-2">
           <label for="questionTitle" class="form-label">Question Title</label>
@@ -89,14 +93,18 @@
           <label for="difficultyLevel" class="form-label"
             >Difficulty Level</label
           >
-          <input
-            type="text"
+          <select
             id="difficultyLevel"
             name="difficultyLevel"
             class="form-control"
             required
             formControlName="difficultyLevel"
-          />
+          >
+            <option value="" disabled selected>Select Difficulty Level</option>
+            <option *ngFor="let level of difficultyLevels" [value]="level">
+              {{ level }}
+            </option>
+          </select>
         </div>
         <div>
           <button

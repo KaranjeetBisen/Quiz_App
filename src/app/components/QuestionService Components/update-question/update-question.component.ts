@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { QuestionService } from '../../../../services/question.service';
+import { QuestionService } from '../../../../services/question-Service/question.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './update-question.component.scss',
 })
 export class UpdateQuestionComponent implements OnInit {
+  categories = ['Java', 'Python', 'C'];
+  difficultyLevels = ['Easy', 'Medium', 'Hard'];
   id !: number; // Initialize id properly
   updateCustomerForm!: FormGroup;
 

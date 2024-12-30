@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Question } from '../../../../models/question';
-import { QuestionService } from '../../../../services/question.service';
+import { QuestionService } from '../../../../services/question-Service/question.service';
 
 @Component({
   selector: 'app-post-question',

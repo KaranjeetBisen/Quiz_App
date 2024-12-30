@@ -16,6 +16,7 @@ export class GetQuizQuestionsByIdComponent implements OnInit{
   questions: QuestionWrapper[] = [];
   responses: Responsee[] = [];
   quizId!: number ;
+  message: any;
  
 
   constructor(private quizService: QuizService,
@@ -49,6 +50,7 @@ export class GetQuizQuestionsByIdComponent implements OnInit{
 
 
       this.quizService.submitQuiz(this.quizId, this.responses).subscribe((response)=>{
+        this.message = "Your Score: "+response ; // Assign the response message
         console.log(response);
     });
     

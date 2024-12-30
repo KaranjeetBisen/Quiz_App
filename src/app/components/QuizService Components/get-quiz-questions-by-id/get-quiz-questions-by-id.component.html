@@ -1,60 +1,33 @@
-<p>get-quiz-questions-by-id works!</p>
-<h1 class="text-center">Quiz</h1>
+<form id="quizForm" class="mt-4" (ngSubmit)="onSubmit()" #quizForm="ngForm">
+  <!-- Question 1 -->
+  <div class="card mb-3" *ngFor="let question of questions; let i = index">
+    <div class="card-body">
+      <h5 class="card-title">Id: {{ question.id }}</h5>
+      <p class="card-text">{{ question.questionTitle }}</p>
 
-    <!-- Quiz Questions -->
-    <form id="quizForm" class="mt-4">
-      <!-- Question 1 -->
-      <div class="card mb-3" *ngFor = "let question of questions">
-        <div class="card-body">
-          <h5 class="card-title">Id: {{question.id}}</h5>
-          <p class="card-text">{{question.questionTitle}}</p>
-          <div class="form-check">
-            <input 
-              type="radio" 
-              class="form-check-input" 
-              name="question1" 
-              id="q1_option1" 
-              value="H20"
-            >
-            <label class="form-check-label" for="q1_option1">{{question.option1}}</label>
-          </div>
-          <div class="form-check">
-            <input 
-              type="radio" 
-              class="form-check-input" 
-              name="question1" 
-              id="q1_option2" 
-              value="O2"
-            >
-            <label class="form-check-label" for="q1_option2">{{question.option2}}</label>
-          </div>
-          <div class="form-check">
-            <input 
-              type="radio" 
-              class="form-check-input" 
-              name="question1" 
-              id="q1_option3" 
-              value="CO2"
-            >
-            <label class="form-check-label" for="q1_option3">{{question.option3}}</label>
-          </div>
-          <div class="form-check">
-            <input 
-              type="radio" 
-              class="form-check-input" 
-              name="question1" 
-              id="q1_option4" 
-              value="N2"
-            >
-            <label class="form-check-label" for="q1_option4">{{question.option4}}</label>
-          </div>
-        </div>
+      <div
+        class="form-check"
+        *ngFor="let option of [question.option1, question.option2, question.option3, question.option4]; let j = index"
+      >
+        <input
+          type="radio"
+          class="form-check-input"
+          [name]="'question' + i"
+          [value]="option"
+          [(ngModel)]="question.selectedAnswer"
+          #selectedAnswer="ngModel"
+          required
+        />
+        <label class="form-check-label">{{ option }}</label>
       </div>
+      <div *ngIf="question.selectedAnswer === null " class="text-danger">
+        Please select an answer.
+      </div>
+    </div>
+  </div>
 
-      
-      <!-- Submit Button -->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary">Submit Quiz</button>
-      </div>
-    </form>
-  
+  <!-- Submit Button -->
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary" [disabled]="quizForm.invalid">Submit Quiz</button>
+  </div>
+</form>

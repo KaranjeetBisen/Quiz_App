@@ -5,4 +5,5 @@ export interface QuestionWrapper {
     option2: string;
     option3: string;
     option4: string;
+    selectedAnswer?: string;
   }

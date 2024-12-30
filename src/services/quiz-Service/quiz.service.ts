@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Quiz } from '../../models/quiz';
 import { catchError, Observable, throwError } from 'rxjs';
 import { QuestionWrapper } from '../../models/questionWrapper';
+import { Responsee } from '../../models/response';
 
 
 const url = ["http://localhost:8080/quiz/"];
@@ -32,6 +33,9 @@ export class QuizService {
     return this.http.get<QuestionWrapper[]>(url+`get/${id}`);
   }
 
+  submitQuiz(id: number, responses: Responsee[]): Observable<any>{
+    return this.http.post(url+`submit/${id}`, responses,{responseType:'text'});
+  }
 
     private handleError(error: any): Observable<never> {
         let errorMessage = '';
